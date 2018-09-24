@@ -1,0 +1,33 @@
+
+body{
+    font-family: "arial black";
+    font-size:0.75 rem;
+    font-color:black;
+
+}
+
+#wrapper{
+    padding: 0.65rem;
+    margin: 0px,auto;
+    border:1 px,solid,#ccc;
+}
+
+#menu{
+    border: 1px solid #ccc;
+	margin-bottom: 10px; 
+    background-color: skyblue;
+    font-family: "arial black";
+    font-size:0.75rem;
+    
+}
+
+.panel{
+    border: 1px solid #ccc;
+    background-color: aqua;
+    font-size:1.75rem;
+    text-align: center;
+}
+
+.content{
+  margin-bottom: 30px;
+}

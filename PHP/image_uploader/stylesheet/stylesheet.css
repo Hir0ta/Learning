@@ -1,0 +1,26 @@
+body {
+	margin: 20px;
+	font: 14px arial, sans-serif;
+}
+
+#container {
+	padding: 10px;
+	margin: 10px auto 10px auto;
+	border: 1px solid #dbdbdb;
+	border-radius: 15px;
+	background-color: #ffffff;
+}
+
+.image {
+	float: left;
+	width: 200px;
+	height: 200px;
+	margin: 5px;
+	text-align: center;
+}
+
+.image img {
+	border: 0px;
+	max-width: 180px;
+	max-height: 180px;
+}
