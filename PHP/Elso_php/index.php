@@ -23,7 +23,7 @@
           </div>
         </div>
           <div class = 'col-xs-12 col-sm-12 col-md-9 col-lg-9'>
-          <div id='panel panel-body content'>
+          <div id='panel-body content'>
             <?php
                 //hiba kezelés
                 ERROR_REPORTING (E_PARSE | E_ERROR);

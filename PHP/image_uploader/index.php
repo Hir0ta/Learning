@@ -12,9 +12,11 @@
 		
 		$replace = array("o" , "u" , "o" , "o" , "u" , "e" , "a" , "u" , "i" , "O" , "U" , "O" , "O" , "U" , "E" , "A" , "U" , "I" , "_");
 		
+		//név mező üres esetén elnevezés
 		if (empty($_POST['title'])) {
 			$filename = date("YmdHis") . ".jpg";
 		}
+		//ékezetes karakterek eltávolítása
 		else {
 			$filename = str_replace($find, $replace, $_POST['title']) . "_" . date("YmdHis") . ".jpg";
 		}
@@ -84,7 +86,7 @@
 		<?php
 			$folder = opendir($uploded_files);
 			
-			// Ciklus megy végigmegy a fájlokon
+			// Ciklus végigmegy a fájlokon
 			while ($file = readdir($folder)) {
 				if ($file == "." or $file == "..") continue;
 				

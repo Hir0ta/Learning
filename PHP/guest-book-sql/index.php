@@ -1,31 +1,26 @@
 <?php
 	ERROR_REPORTING(E_PARSE | E_ERROR);
 	
-	// Kiolvas
-	$filename = "database/db.txt";
+	// Adatbázis
+	include 'config.php';
 	
-	$handle = fopen($filename, "r");
-	
-	$data = unserialize(fread($handle, filesize($filename)));
-	
-	fclose($handle);
-	
-	// print "<pre>"; print_r($data); print "</pre>"; die;
-
 	if ($_POST) {
 		// Ellenőrizzük, hogy van-e üres mező..
 		if (empty($_POST['username'])) die("<script>alert('A felhasználó név mező nem lehet üres!'); location.href = location.href</script>");
 		
 		if (empty($_POST['comment'])) die("<script>alert('A megjegyzés mező nem lehet üres!'); location.href = location.href</script>");
 		
-		// Beír
-		$handle = fopen($filename, "w");
+		// Trollkodás gátló
+		$_POST['comment'] = strip_tags($_POST['comment']);
 		
-		$data[] = array($_POST['username'], date("Y.m.d. H:i:s"), $_POST['comment']);
+		// Beszúrjuk a táblába
+		$sql = "INSERT INTO comment (name, comment, ip_address, agent, date_added) VALUES ('" . $_POST['username'] . "', '" . $_POST['comment'] . "', '" . $_SERVER['REMOTE_ADDR'] . "', '" . $_SERVER['HTTP_USER_AGENT'] . "', NOW())";
 		
-		fwrite($handle, serialize($data));
+		// exit($sql); // Debug
 		
-		fclose($handle);
+		mysqli_query($db, $sql);
+		
+		mysqli_close($db);
 		
 		header("Location: index.php");
 	}
@@ -96,20 +91,29 @@
 			</div>
 			
 			<?php
-				for ($i = 0 ; $i < count($data) ; $i++) {
-					// Kicseréljük a smiley jelét a képre
-					$data[$i][2] = str_replace(":)", "<img src='images/01.png' alt=':)' title=':)'>", $data[$i][2]);
-					$data[$i][2] = str_replace(":(", "<img src='images/02.png' alt=':(' title=':('>", $data[$i][2]);
-					$data[$i][2] = str_replace(";)", "<img src='images/03.png' alt=';)' title=';)'>", $data[$i][2]);
-					$data[$i][2] = str_replace(":@", "<img src='images/04.png' alt=':@' title=':@'>", $data[$i][2]);
-					$data[$i][2] = str_replace(":P", "<img src='images/05.png' alt=':P' title=':P'>", $data[$i][2]);
-					$data[$i][2] = str_replace(":O", "<img src='images/06.png' alt=':O' title=':O'>", $data[$i][2]);
-					$data[$i][2] = str_replace(":D", "<img src='images/07.png' alt=':D' title=':D'>", $data[$i][2]);
-					$data[$i][2] = str_replace("<3", "<img src='images/10.png' alt='<3' title='<3'>", $data[$i][2]);
+				$sql = "SELECT * FROM comment ORDER BY date_added DESC";
+				
+				$result = mysqli_query($db, $sql);
+				
+				while ($row = mysqli_fetch_assoc($result)) {
+					// Dátum formátum
+					$row['date_added'] = str_replace("-", ".", $row['date_added']);
+					$row['date_added'] = str_replace(" ", ". ", $row['date_added']);
 					
-					// Kiírjuk 
-					print "<div class='comment'><b>" . $data[$i][0] . " | " . $data[$i][1] . "</b><br>" . $data[$i][2] . "</div>" . "\n";
+					// Kicseréljük a smiley jelét a képre
+					$row['comment'] = str_replace(":)", "<img src='images/01.png' alt=':)' title=':)'>", $row['comment']);
+					$row['comment'] = str_replace(":(", "<img src='images/02.png' alt=':(' title=':('>", $row['comment']);
+					$row['comment'] = str_replace(";)", "<img src='images/03.png' alt=';)' title=';)'>", $row['comment']);
+					$row['comment'] = str_replace(":@", "<img src='images/04.png' alt=':@' title=':@'>", $row['comment']);
+					$row['comment'] = str_replace(":P", "<img src='images/05.png' alt=':P' title=':P'>", $row['comment']);
+					$row['comment'] = str_replace(":O", "<img src='images/06.png' alt=':O' title=':O'>", $row['comment']);
+					$row['comment'] = str_replace(":D", "<img src='images/07.png' alt=':D' title=':D'>", $row['comment']);
+					$row['comment'] = str_replace("<3", "<img src='images/10.png' alt='<3' title='<3'>", $row['comment']);
+					
+					print "<div class='comment'><b>" . $row['name'] . " | " . $row['date_added'] . "</b><br>" . $row['comment'] . "</div>" . "\n";
 				}
+				
+				mysqli_close($db);
 			?>
 
 		</div>
