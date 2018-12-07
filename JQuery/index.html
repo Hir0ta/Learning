@@ -4,36 +4,200 @@
 
 <head>
 
-  <meta charset="utf-8">
+        <meta charset="utf-8">
 
-  <title></title>
+        <title></title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
-  <script src="https://code.jquery.com/jquery-1.10.0.js" integrity="sha256-iqD4S1Mx78w8tyx9UEwrxuvYYdoAPXLDPfmc5lDUUx0=" crossorigin="anonymous"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
-  <script
-  src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-  <script>
 
-$(document).ready(function(){
-    $("p").click(function(){
-        $(this).hide();
-    });
-});
-  </script>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+        <script>
+
+                <!-- Hide and show -->
+
+                $(document).ready(function(){
+
+                        $('#hide').click(function(){
+
+                                $('#hideShow').hide(1000);
+
+                        });
+
+                        $('#show').click(function(){
+
+                                $('#hideShow').show();
+
+                        });
+
+                        $('#toggle').click(function(){
+
+                                $('#hideShow').toggle();
+
+                        });
+
+                });
+
+                <!-- Fading -->
+
+                $(document).ready(function(){
+
+                        $('#fadeInButton').click(function(){
+
+                                $('#redBox').fadeIn();
+
+                                $('#greenBox').fadeIn(1000);
+
+                                $('#blueBox').fadeIn(2000);
+
+                        });
+
+                        $('#fadeOutButton').click(function(){
+
+                                $('#redBox').fadeOut();
+
+                                $('#greenBox').fadeOut();
+
+                                $('#blueBox').fadeOut();
+
+                        });
+
+                        $('#fadeToggleButton').click(function(){
+
+                                $('#redBox').fadeToggle();
+
+                                $('#greenBox').fadeToggle();
+
+                                $('#blueBox').fadeToggle();
+
+                        });
+
+                        $('#fadeToButton').click(function(){
+
+                                $('#redBox').fadeTo('slow', 0.15);
+
+                                $('#greenBox').fadeTo('slow', 0.4);
+
+                                $('#blueBox').fadeTo('slow', 0.1);
+
+                        });
+
+                        $('#fadeBack').click(function(){
+
+                                $('#redBox').fadeTo('slow', 1);
+
+                                $('#greenBox').fadeTo('slow', 1);
+
+                                $('#blueBox').fadeTo('slow', 1);
+
+                                $('#redBox').animate({
+
+                                        height: '80px',
+                                        width: '80px',
+
+                                });
+
+                        });
+
+                });
+
+                <!-- Sliding -->
+
+                $(document).ready(function(){
+
+                        $('#flip').click(function(){
+
+                                $('#panel').slideToggle('slow');
+
+                        });
+
+                });
+
+                $(document).ready(function(){
+
+                        $('#animateButton').click(function(){
+
+                                $("#redBox").animate({
+
+                                        height: '150px',
+                                        width: '150px'
+
+                                });
+
+                        })
+                })
+
+        </script>
+
+        <style> 
+        
+                #panel, #flip {
+                        padding: 5px;
+                        text-align: center;
+                        background-color: #e5eecc;
+                        border: solid 1px #c3c3c3;
+                }
+                
+                #panel {
+                        padding: 50px;
+                        display: none;
+                }
+
+        </style>
 
 </head>
 
 <body>
+        <div id='flip'>Click to slide down panel</div>
 
-    <p>If you click on me, I will disappear.</p>
+        <div id='panel'>
 
-    <p>Click me away!</p>
+                <h1>Hello world!</h1>
 
-    <p>Click me too!</p>
+        </div>
+
+        <div id='hideShow'>
+
+                <p>If you click on the "Hide" button, I will disappear.</p>
+
+        </div>
+
+        <button id='hide'>Hide</button>
+
+        <button id='show'>Show</button>
+
+        <button id='toggle'>Toggle between hide and show</button><br><br>
+
+        <button id='fadeInButton'>Click to fade in boxes</button><br><br>
+
+        <button id='fadeOutButton'>Click to fade out boxes</button><br><br>
+
+        <button id='fadeToggleButton'>Clickt to toggle between fade in and out</button><br><br>
+
+        <button id='animateButton'>Click to animate</button>
+
+        <button id='fadeToButton'>Click to fade to</button>
+        
+        <button id='fadeBack'>Click to fade to default</button><br><br>
+
+        <div class='fading'>
+
+                <br>
+                
+                <div id="redBox" style="width:80px; height:80px; display:none; background-color:red;"></div><br>
+
+                <div id="greenBox" style="width:80px; height:80px; display:none; background-color:green;"></div><br>
+
+                <div id="blueBox" style="width:80px; height:80px; display:none; background-color:blue;"></div><br><br>
+
+        </div>
 
 </body>
 
