@@ -120,6 +120,8 @@
 
                 });
 
+                <!-- Animate -->
+
                 $(document).ready(function(){
 
                         $('#animateButton').click(function(){
@@ -133,6 +135,42 @@
 
                         })
                 })
+
+                <!-- Values -->
+                $(document).ready(function(){
+
+                        $('#valueButton').click(function(){
+
+                                alert('Hello ' + $('.values').val() + '!');
+                                
+                        });
+
+                });
+
+                <!-- Set content -->
+                $(document).ready(function(){
+
+                        $('#textChange').click(function(){
+
+                                $('#hideShow').text('I have changed the text');
+
+                        });
+
+                        $('#htmlChange').click(function(){
+
+                                $('#hideShow').html('<b>I made a bold text!</b>');
+                        });
+                });
+
+                <!-- Add new value -->
+                $(document).ready(function(){
+
+                        $('#newName').click(function(){
+
+                                $('Name').append("<input type='text' class='values'>");
+
+                        });
+                });
 
         </script>
 
@@ -155,7 +193,7 @@
 </head>
 
 <body>
-        <div id='flip'>Click to slide down panel</div>
+        <div id='flip'>Click to slide</div>
 
         <div id='panel'>
 
@@ -163,39 +201,59 @@
 
         </div>
 
-        <div id='hideShow'>
+        <br><br>
 
-                <p>If you click on the "Hide" button, I will disappear.</p>
+        <div id='textEditor'>
+
+                <div id='hideShow'>
+
+                        <p>If you click on the "Hide" button, I will disappear.</p>
+
+                </div>
+
+                <button id='hide'>Hide</button>
+
+                <button id='show'>Show</button>
+
+                <button id='toggle'>Toggle between hide and show</button>
+                
+                <button id='textChange'>Click to modify text</button>
+
+                <button id='htmlChange'>Click to make it bold</button>
 
         </div>
 
-        <button id='hide'>Hide</button>
+        <br><br>
 
-        <button id='show'>Show</button>
+        <div id='boxes'>
 
-        <button id='toggle'>Toggle between hide and show</button><br><br>
+                <button id='fadeInButton'>Click to fade in boxes</button>
 
-        <button id='fadeInButton'>Click to fade in boxes</button><br><br>
+                <button id='fadeOutButton'>Click to fade out boxes</button>
 
-        <button id='fadeOutButton'>Click to fade out boxes</button><br><br>
+                <button id='fadeToggleButton'>Clickt to toggle between fade in and out</button>
 
-        <button id='fadeToggleButton'>Clickt to toggle between fade in and out</button><br><br>
+                <button id='animateButton'>Click to animate</button>
 
-        <button id='animateButton'>Click to animate</button>
-
-        <button id='fadeToButton'>Click to fade to</button>
-        
-        <button id='fadeBack'>Click to fade to default</button><br><br>
-
-        <div class='fading'>
-
-                <br>
+                <button id='fadeToButton'>Click to fade to</button>
                 
-                <div id="redBox" style="width:80px; height:80px; display:none; background-color:red;"></div><br>
+                <button id='fadeBack'>Click to fade to default</button>
 
-                <div id="greenBox" style="width:80px; height:80px; display:none; background-color:green;"></div><br>
+                <div class='fading'>
 
-                <div id="blueBox" style="width:80px; height:80px; display:none; background-color:blue;"></div><br><br>
+                        <br>
+                        
+                        <div id="redBox" style="width:80px; height:80px; display:none; background-color:red;"></div><br>
+
+                        <div id="greenBox" style="width:80px; height:80px; display:none; background-color:green;"></div><br>
+
+                        <div id="blueBox" style="width:80px; height:80px; display:none; background-color:blue;"></div><br><br>
+
+                </div>
+
+                <p>Name: <input type='text' class='values' value=''></p>
+
+                <button id='valueButton'>Show value</button>
 
         </div>
 
