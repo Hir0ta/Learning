@@ -9,6 +9,6 @@ I try out the JQuery functions in this doc.
 - JQuery
 
 # Live version
-https://output.jsbin.com/lafugek/1
+https://output.jsbin.com/lafugek
 
 
