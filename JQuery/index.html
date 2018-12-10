@@ -27,22 +27,11 @@
                                 });
 
                                 /*----------- Fading -------------*/
-                                $('#fadeInButton').click(function(){
-                                        $('#redBox').fadeIn();
-                                        $('#greenBox').fadeIn(1000);
-                                        $('#blueBox').fadeIn(2000);
-                                });
 
                                 $('#fadeInButton').click(function(){
                                         $('#redBox').fadeIn();
                                         $('#greenBox').fadeIn(1000);
                                         $('#blueBox').fadeIn(2000);
-                                });
-
-                                $('#fadeOutButton').click(function(){
-                                        $('#redBox').fadeOut();
-                                        $('#greenBox').fadeOut();
-                                        $('#blueBox').fadeOut();
                                 });
 
                                 $('#fadeOutButton').click(function(){
@@ -90,16 +79,19 @@
                                 $('#textAdd').click(function(){
                                         var addedText = document.getElementById('addedText').value;
                                         $('#textArea').append(addedText);
+                                        addedText.value = '';
                                 });
 
                                 $('#textChange').click(function(){
                                         var addedText = document.getElementById('addedText').value;
                                         $('#textArea').text(addedText);
+                                        addedText.value = '';
                                 });
 
                                 $('#htmlChange').click(function(){
                                         var addedText = document.getElementById('addedText').value;
                                         $('#textArea').html('<b>' + addedText + '</b>');
+                                        addedText.value = '';
                                 });
 
                                 $('#textRemove').click(function(){
