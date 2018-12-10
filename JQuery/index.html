@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 
 <html>
+
         <head>
+
                 <meta charset="utf-8">
                 <title>JQuery</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,47 +12,57 @@
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
                 <script>
                         $(document).ready(function(){
-                                                <!-- Hide and show -->
+
+                                /*------- Hide and show ------ */
                                 $('#hide').click(function(){
                                         $('#textArea').hide(1000);
                                 });
+
                                 $('#show').click(function(){
                                         $('#textArea').show();
                                 });
+
                                 $('#toggle').click(function(){
                                         $('#textArea').toggle();
                                 });
-                                                <!-- Fading -->
+
+                                /*----------- Fading -------------*/
                                 $('#fadeInButton').click(function(){
                                         $('#redBox').fadeIn();
                                         $('#greenBox').fadeIn(1000);
                                         $('#blueBox').fadeIn(2000);
                                 });
+
                                 $('#fadeInButton').click(function(){
                                         $('#redBox').fadeIn();
                                         $('#greenBox').fadeIn(1000);
                                         $('#blueBox').fadeIn(2000);
                                 });
+
                                 $('#fadeOutButton').click(function(){
                                         $('#redBox').fadeOut();
                                         $('#greenBox').fadeOut();
                                         $('#blueBox').fadeOut();
                                 });
+
                                 $('#fadeOutButton').click(function(){
                                         $('#redBox').fadeOut();
                                         $('#greenBox').fadeOut();
                                         $('#blueBox').fadeOut();
                                 });
+
                                 $('#fadeToggleButton').click(function(){
                                         $('#redBox').fadeToggle();
                                         $('#greenBox').fadeToggle();
                                         $('#blueBox').fadeToggle();
                                 });
+
                                 $('#fadeToButton').click(function(){
                                         $('#redBox').fadeTo('slow', 0.15);
                                         $('#greenBox').fadeTo('slow', 0.4);
                                         $('#blueBox').fadeTo('slow', 0.1);
                                 });
+
                                 $('#fadeBack').click(function(){
                                         $('#redBox').fadeTo('slow', 1);
                                         $('#greenBox').fadeTo('slow', 1);
@@ -60,43 +72,52 @@
                                                 width: '80px',
                                         });
                                 });
-                                                <!-- Sliding -->
+
+                                /*------------ Sliding ---------------*/
                                 $('#flip').click(function(){
                                         $('#panel').slideToggle('slow');
                                 });
-                                                <!-- Animate -->
+
+                                /*------------- Animate -----------*/
                                 $('#animateButton').click(function(){
                                         $("#redBox").animate({
                                                 height: '150px',
                                                 width: '150px'
                                         });
                                 })
-                                                <!-- Change text -->
+
+                                /*--------- Change text -----------*/
                                 $('#textAdd').click(function(){
                                         var addedText = document.getElementById('addedText').value;
                                         $('#textArea').append(addedText);
                                 });
+
                                 $('#textChange').click(function(){
                                         var addedText = document.getElementById('addedText').value;
                                         $('#textArea').text(addedText);
                                 });
+
                                 $('#htmlChange').click(function(){
                                         var addedText = document.getElementById('addedText').value;
                                         $('#textArea').html('<b>' + addedText + '</b>');
                                 });
+
                                 $('#textRemove').click(function(){
                                         $('#textArea').empty();
                                 });
+
                                 $('#blueButton').click(function(){
                                         $('#textArea').css({'color':''});
                                         $('#textArea').removeClass();
                                         $('#textArea').addClass('blue');
                                 });
+
                                 $('#redButton').click(function(){
                                         $('#textArea').css({'color':''});
                                         $('#textArea').removeClass();
                                         $('#textArea').addClass('red');
                                 });
+
                                 $('#styleChanger').click(function(){
                                         var color = document.getElementById('addedStyle').value;
                                         $('#textArea').removeClass();
@@ -104,7 +125,8 @@
                                         $('#textArea').css({'color': color});
                                         addedStyle.value = '';
                                 });
-                                                <!-- Values -->
+
+                                /*---------------- Values --------------------*/
                                 $('#valueButton').click(function(){
                                         alert('Hello ' + $('.values').val() + '!');
                                 });
@@ -124,13 +146,16 @@
                                 padding: 50px;
                                 display: none;
                         }
+
                         .blue {
                                 color: blue;
                         }
+
                         .red {
                                 color:red;
                         }
                 </style>
+
         </head>
 
         <body>
