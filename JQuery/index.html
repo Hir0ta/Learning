@@ -13,7 +13,7 @@
                 <script>
                         $(document).ready(function(){
 
-                                                <!-- Hide and show -->
+                                /*------- Hide and show ------ */
                                 $('#hide').click(function(){
                                         $('#textArea').hide(1000);
                                 });
@@ -26,7 +26,7 @@
                                         $('#textArea').toggle();
                                 });
 
-                                                <!-- Fading -->
+                                /*----------- Fading -------------*/
                                 $('#fadeInButton').click(function(){
                                         $('#redBox').fadeIn();
                                         $('#greenBox').fadeIn(1000);
@@ -73,12 +73,12 @@
                                         });
                                 });
 
-                                                <!-- Sliding -->
+                                /*------------ Sliding ---------------*/
                                 $('#flip').click(function(){
                                         $('#panel').slideToggle('slow');
                                 });
 
-                                                <!-- Animate -->
+                                /*------------- Animate -----------*/
                                 $('#animateButton').click(function(){
                                         $("#redBox").animate({
                                                 height: '150px',
@@ -86,7 +86,7 @@
                                         });
                                 })
 
-                                                <!-- Change text -->
+                                /*--------- Change text -----------*/
                                 $('#textAdd').click(function(){
                                         var addedText = document.getElementById('addedText').value;
                                         $('#textArea').append(addedText);
@@ -126,7 +126,7 @@
                                         addedStyle.value = '';
                                 });
 
-                                                <!-- Values -->
+                                /*---------------- Values --------------------*/
                                 $('#valueButton').click(function(){
                                         alert('Hello ' + $('.values').val() + '!');
                                 });
