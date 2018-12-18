@@ -24,7 +24,7 @@
 		}
 
 		// Üres keresztnév
-		if (empty($_POST['firtname'])) {
+		if (empty($_POST['firstname'])) {
 			exit("<script>alert('First name cant be empty..'); location.href = location.href</script>");
 		}
 		
