@@ -34,18 +34,48 @@
             };
             this.age = age;
             this.gender = gender;
+            var subject;
+            var sentence = this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. ';
+            //decide the sentences subject:
+            if (this.gender === 'male' || this.gender ==='Male' || this.gender === 'm' || this.gender === 'M'){
+              subject = 'He likes ';
+            }else{
+              subject = 'She likes ';
+            }
+            sentence += subject;
             this.interests = interests;
-            this.bio = function() {
-              alert(this.name.first + ' ' + this.name.last + ' is' + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+            //in case if there is only one interest:
+            if(this.interests.length === 1){
+              sentence += interests[0] + '.';
+            //in case if there are two interests:
+            }else if(this.interests.length === 2){
+              sentence += interests[0] + ' and ' + interests[1] + '.';
+            //in case if there are more than 2 interests:
+            }else{
+              //make a loop to add as many interests as the user want
+              for(i=0; i < this.interests.length; i++){
+                //add an 'and' before the last interest:
+                if (i === this.interests.length - 1){
+                  sentence += ' and ' + this.interests[i] + '.';
+                }else{
+                  sentence += this.interests[i] + ', ';
+                }
+              }
+            }
+            /*this.bio = function() {
+              alert(this.name.first + ' ' + this.name.last + ' is' + ' years old. ' + this.subject +  ' likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+            };*/
+            this.bio = function(){
+              alert(sentence);
             };
             this.greeting = function() {
               alert('Hi! I\'m ' + this.name.first + '.');
             };
           }
 
-          var person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']);
-          
-        
+          var person1 = new Person('Bob', 'Smith', 32, 'm', ['music', 'skiing', 'surfing', 'skateboarding']);
+          var person2 = new Person('Zoltan', 'Kis', 27, 'male', ['scale modelling', 'video games']);
+
         </script>
     </body>
 
