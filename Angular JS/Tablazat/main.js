@@ -40,16 +40,21 @@ app.controller("myCtrl", function($scope) {
 
     $scope.viewData = function(i) {
         //console.log("x");
+        var active = $scope.i;
         $scope.selectedData[0] = {}  ;
         $scope.selectedData[0].Name = $scope.records[i].Name;
         $scope.selectedData[0].Email = $scope.records[i].Email;
+        
+        $scope.modify = function() {
+            $scope.records[i] = {};
+            $scope.records[i].Name = $scope.selectedData[0].Name;
+            $scope.records[i].Email = $scope.selectedData[0].Email;
+        };
+        
     };
+    
 
-    $scope.modify = function() {
-        $scope.records[i] = {};
-        $scope.records[i].Name = $scope.selectedData[0].Name;
-        $scope.records[i].Email = $scope.selectedData[0].Email;
-    };
+
 
 
 });
