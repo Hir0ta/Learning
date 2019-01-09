@@ -16,7 +16,7 @@
 		// Beszúrjuk a táblába
 		$sql = "INSERT INTO comment (name, comment, ip_address, agent, date_added) VALUES ('" . $_POST['username'] . "', '" . $_POST['comment'] . "', '" . $_SERVER['REMOTE_ADDR'] . "', '" . $_SERVER['HTTP_USER_AGENT'] . "', NOW())";
 		
-		// exit($sql); // Debug
+		exit($sql); // Debug
 		
 		mysqli_query($db, $sql);
 		

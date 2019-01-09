@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <!--For icons-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Angular library-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <!-- Bootstrap library -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <!--Own JS codes-->
+        <script src="main.js"></script>
+
+    </head>
+
+    <body>
+
+        <div class="table" ng-app="myTable"  ng-controller="myCtrl">
+
+            <button class="btn btn-secondary" id="newRow"  ng-click="addNewRow()">Add New</button>
+            
+    
+            <table class="table table-striped table-bordered dataTable" border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="data in records" >
+                    <td>{{data.Name}}</td>
+                    <td>{{data.Email}}</td>
+                    <td>
+                        <button class="btn btn-secondary" id="remove" ng-click="removeRow($index)">Remove</button>
+                        <button class="btn btn-secondary" id="view" ng-click="viewData($index)">View</button>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="dataViewer" ng-model="dataView">
+                
+                <p class="selectedData inline">Name:</p><input class="inline" type="text" ng-model="selectedData[0].Name">
+                <p class="selectedData inline">Email:</p><input class="inline" type="text" ng-model="selectedData[0].Email">
+                <button class="btn btn-secondary inline" id="modify" ng-click="modify()">Modify</button>
+
+            </div>
+
+        </div>      
+
+    </body>
+
+</html>

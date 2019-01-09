@@ -2,206 +2,183 @@
 
 <html>
 
-        <head>
+  <head>
 
-                <meta charset="utf-8">
-                <title>JQuery</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-                <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-                <script>
-                        $(document).ready(function(){
+    <meta charset="utf-8">
+    <title>JQuery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        /*------- Hide and show ------ */
+        $('#hide').click(function(){
+                $('#textArea').hide(1000);
+        });
+        $('#show').click(function(){
+                $('#textArea').show();
+        });
+        $('#toggle').click(function(){
+                $('#textArea').toggle();
+        });
+        /*----------- Fading -------------*/
+        $('#fadeInButton').click(function(){
+                $('#redBox').fadeIn();
+                $('#greenBox').fadeIn(1000);
+                $('#blueBox').fadeIn(2000);
+        });
+        $('#fadeOutButton').click(function(){
+                $('#redBox').fadeOut();
+                $('#greenBox').fadeOut();
+                $('#blueBox').fadeOut();
+        });
+        $('#fadeToggleButton').click(function(){
+                $('#redBox').fadeToggle();
+                $('#greenBox').fadeToggle();
+                $('#blueBox').fadeToggle();
+        });
+        $('#fadeToButton').click(function(){
+                $('#redBox').fadeTo('slow', 0.15);
+                $('#greenBox').fadeTo('slow', 0.4);
+                $('#blueBox').fadeTo('slow', 0.1);
+        });
+        $('#fadeBack').click(function(){
+                $('#redBox').fadeTo('slow', 1);
+                $('#greenBox').fadeTo('slow', 1);
+                $('#blueBox').fadeTo('slow', 1);
+                $('#redBox').animate({
+                        height: '80px',
+                        width: '80px',
+                });
+        });
+        /*------------ Sliding ---------------*/
+        $('#flip').click(function(){
+                $('#panel').slideToggle('slow');
+        });
+        /*------------- Animate -----------*/
+        $('#animateButton').click(function(){
+                $("#redBox").animate({
+                        height: '150px',
+                        width: '150px'
+                });
+        })
+        /*--------- Change text -----------*/
+        $('#textAdd').click(function(){
+                var addedText = document.getElementById('addedText').value;
+                $('#textArea').append(addedText);
+                addedText.value = '';
+        });
+        $('#textChange').click(function(){
+                var addedText = document.getElementById('addedText').value;
+                $('#textArea').text(addedText);
+                addedText.value = '';
+        });
+        $('#htmlChange').click(function(){
+                var addedText = document.getElementById('addedText').value;
+                $('#textArea').html('<b>' + addedText + '</b>');
+                addedText.value = '';
+        });
+        $('#textRemove').click(function(){
+                $('#textArea').empty();
+        });
+        $('#blueButton').click(function(){
+                $('#textArea').css({'color':''});
+                $('#textArea').removeClass();
+                $('#textArea').addClass('blue');
+        });
+        $('#redButton').click(function(){
+                $('#textArea').css({'color':''});
+                $('#textArea').removeClass();
+                $('#textArea').addClass('red');
+        });
+        $('#styleChanger').click(function(){
+                var color = document.getElementById('addedStyle').value;
+                $('#textArea').removeClass();
+                $('#textArea').css({'color':''});
+                $('#textArea').css({'color': color});
+                addedStyle.value = '';
+        });
+        /*---------------- Values --------------------*/
+        $('#valueButton').click(function(){
+                alert('Hello ' + $('.values').val() + '!');
+        });
+        
+      });
+    </script>
 
-                                /*------- Hide and show ------ */
-                                $('#hide').click(function(){
-                                        $('#textArea').hide(1000);
-                                });
+    <style> 
+      #panel, #flip {
+              padding: 5px;
+              text-align: center;
+              background-color: #e5eecc;
+              border: solid 1px #c3c3c3;
+      }
+      
+      #panel {
+              padding: 50px;
+              display: none;
+      }
+      .blue {
+              color: blue;
+      }
+      .red {
+              color:red;
+      }
+    </style>
+  </head>
 
-                                $('#show').click(function(){
-                                        $('#textArea').show();
-                                });
+  <body>
+    <div id='flip'>Click to slide</div>
+    <div id='panel'>
+      <h1>Hello world!</h1>
+    </div>
 
-                                $('#toggle').click(function(){
-                                        $('#textArea').toggle();
-                                });
+    <br>
 
-                                /*----------- Fading -------------*/
+    <div class='greetings'>
+      <p>Name: <input type='text' class='values' value=''></p>
+      <button id='valueButton'>Show value</button>
+    </div>
 
-                                $('#fadeInButton').click(function(){
-                                        $('#redBox').fadeIn();
-                                        $('#greenBox').fadeIn(1000);
-                                        $('#blueBox').fadeIn(2000);
-                                });
+    <br><br>
 
-                                $('#fadeOutButton').click(function(){
-                                        $('#redBox').fadeOut();
-                                        $('#greenBox').fadeOut();
-                                        $('#blueBox').fadeOut();
-                                });
+    <div id='textEditor'>
+      <div id='textArea'>
+              <p>If you click on the "Hide" button, I will disappear.</p>
+      </div>
+      <button id='hide'>Hide</button>
+      <button id='show'>Show</button>
+      <button id='toggle'>Toggle between hide and show</button>
+      <br><br>
+      <input type='text' id='addedText' placeholder='Write some text here' style= 'width:200px;'>
+      <button id='textChange'>Click to modify text</button>
+      <button id='textAdd'>Click add text</button>
+      <button id='htmlChange'>Click to make it bold</button>
+      <button id='textRemove'>Click to remove text</button>
+      <button id='redButton'>Click to make it red</button>
+      <button id='blueButton'>Click to make it blue</button>
+      <br><br>
+      <input type='text' id='addedStyle' placeholder='Write here a color' style= 'width:200px'>
+      <button id='styleChanger'>Click to modify text color</button>
+    </div>
 
-                                $('#fadeToggleButton').click(function(){
-                                        $('#redBox').fadeToggle();
-                                        $('#greenBox').fadeToggle();
-                                        $('#blueBox').fadeToggle();
-                                });
+    <br><br>
 
-                                $('#fadeToButton').click(function(){
-                                        $('#redBox').fadeTo('slow', 0.15);
-                                        $('#greenBox').fadeTo('slow', 0.4);
-                                        $('#blueBox').fadeTo('slow', 0.1);
-                                });
+    <div id='boxes'>
+      <button id='fadeInButton'>Click to fade in boxes</button>
+      <button id='fadeOutButton'>Click to fade out boxes</button>
+      <button id='fadeToggleButton'>Clickt to toggle between fade in and out</button>
+      <button id='animateButton'>Click to animate</button>
+      <button id='fadeToButton'>Click to fade to</button>
+      <button id='fadeBack'>Click to fade to default</button>
+      <div class='fading'>
+        <br>
+        <div id="redBox" style="width:80px; height:80px; display:none; background-color:red;"></div><br>
+        <div id="greenBox" style="width:80px; height:80px; display:none; background-color:green;"></div><br>
+        <div id="blueBox" style="width:80px; height:80px; display:none; background-color:blue;"></div><br><br>
+      </div>
+    </div>
 
-                                $('#fadeBack').click(function(){
-                                        $('#redBox').fadeTo('slow', 1);
-                                        $('#greenBox').fadeTo('slow', 1);
-                                        $('#blueBox').fadeTo('slow', 1);
-                                        $('#redBox').animate({
-                                                height: '80px',
-                                                width: '80px',
-                                        });
-                                });
-
-                                /*------------ Sliding ---------------*/
-                                $('#flip').click(function(){
-                                        $('#panel').slideToggle('slow');
-                                });
-
-                                /*------------- Animate -----------*/
-                                $('#animateButton').click(function(){
-                                        $("#redBox").animate({
-                                                height: '150px',
-                                                width: '150px'
-                                        });
-                                })
-
-                                /*--------- Change text -----------*/
-                                $('#textAdd').click(function(){
-                                        var addedText = document.getElementById('addedText').value;
-                                        $('#textArea').append(addedText);
-                                        addedText.value = '';
-                                });
-
-                                $('#textChange').click(function(){
-                                        var addedText = document.getElementById('addedText').value;
-                                        $('#textArea').text(addedText);
-                                        addedText.value = '';
-                                });
-
-                                $('#htmlChange').click(function(){
-                                        var addedText = document.getElementById('addedText').value;
-                                        $('#textArea').html('<b>' + addedText + '</b>');
-                                        addedText.value = '';
-                                });
-
-                                $('#textRemove').click(function(){
-                                        $('#textArea').empty();
-                                });
-
-                                $('#blueButton').click(function(){
-                                        $('#textArea').css({'color':''});
-                                        $('#textArea').removeClass();
-                                        $('#textArea').addClass('blue');
-                                });
-
-                                $('#redButton').click(function(){
-                                        $('#textArea').css({'color':''});
-                                        $('#textArea').removeClass();
-                                        $('#textArea').addClass('red');
-                                });
-
-                                $('#styleChanger').click(function(){
-                                        var color = document.getElementById('addedStyle').value;
-                                        $('#textArea').removeClass();
-                                        $('#textArea').css({'color':''});
-                                        $('#textArea').css({'color': color});
-                                        addedStyle.value = '';
-                                });
-
-                                /*---------------- Values --------------------*/
-                                $('#valueButton').click(function(){
-                                        alert('Hello ' + $('.values').val() + '!');
-                                });
-                                
-                        });
-                </script>
-
-                <style> 
-                        #panel, #flip {
-                                padding: 5px;
-                                text-align: center;
-                                background-color: #e5eecc;
-                                border: solid 1px #c3c3c3;
-                        }
-                        
-                        #panel {
-                                padding: 50px;
-                                display: none;
-                        }
-
-                        .blue {
-                                color: blue;
-                        }
-
-                        .red {
-                                color:red;
-                        }
-                </style>
-
-        </head>
-
-        <body>
-                <div id='flip'>Click to slide</div>
-                <div id='panel'>
-                        <h1>Hello world!</h1>
-                </div>
-
-                <br>
-
-                <div class='greetings'>
-                        <p>Name: <input type='text' class='values' value=''></p>
-                        <button id='valueButton'>Show value</button>
-                </div>
-
-                <br><br>
-
-                <div id='textEditor'>
-                        <div id='textArea'>
-                                <p>If you click on the "Hide" button, I will disappear.</p>
-                        </div>
-                        <button id='hide'>Hide</button>
-                        <button id='show'>Show</button>
-                        <button id='toggle'>Toggle between hide and show</button>
-                        <br><br>
-                        <input type='text' id='addedText' placeholder='Write some text here' style= 'width:200px;'>
-                        <button id='textChange'>Click to modify text</button>
-                        <button id='textAdd'>Click add text</button>
-                        <button id='htmlChange'>Click to make it bold</button>
-                        <button id='textRemove'>Click to remove text</button>
-                        <button id='redButton'>Click to make it red</button>
-                        <button id='blueButton'>Click to make it blue</button>
-                        <br><br>
-                        <input type='text' id='addedStyle' placeholder='Write here a color' style= 'width:200px'>
-                        <button id='styleChanger'>Click to modify text color</button>
-                </div>
-
-                <br><br>
-
-                <div id='boxes'>
-                        <button id='fadeInButton'>Click to fade in boxes</button>
-                        <button id='fadeOutButton'>Click to fade out boxes</button>
-                        <button id='fadeToggleButton'>Clickt to toggle between fade in and out</button>
-                        <button id='animateButton'>Click to animate</button>
-                        <button id='fadeToButton'>Click to fade to</button>
-                        <button id='fadeBack'>Click to fade to default</button>
-                        <div class='fading'>
-                                <br>
-                                <div id="redBox" style="width:80px; height:80px; display:none; background-color:red;"></div><br>
-                                <div id="greenBox" style="width:80px; height:80px; display:none; background-color:green;"></div><br>
-                                <div id="blueBox" style="width:80px; height:80px; display:none; background-color:blue;"></div><br><br>
-                        </div>
-                </div>
-
-        </body>
-
+  </body>
 </html>
