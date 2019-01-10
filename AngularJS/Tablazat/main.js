@@ -1,6 +1,6 @@
 var app = angular.module("myTable", []);
 app.controller("myCtrl", function($scope) {
-
+    $scope.active = -1;
     $scope.selectedData = []; 
     $scope.records = [
         {
@@ -26,37 +26,29 @@ app.controller("myCtrl", function($scope) {
     ]
 
     $scope.addNewRow = function(){
-        //console.log("x");
         $scope.records.push({
             "Name" : "",
             "Email" : "",
         });
-
+        $scope.viewData($scope.records.length-1);
     };
 
     $scope.removeRow = function(i) {
         $scope.records.splice(i,1);
+        $scope.active = -1;
 
     };
 
-
-
     $scope.viewData = function(i) {
-        //console.log("x");
+        $scope.active = i;
         $scope.selectedData[0] = {}  ;
         $scope.selectedData[0].Name = $scope.records[i].Name;
         $scope.selectedData[0].Email = $scope.records[i].Email;
 
         $scope.modify = function() {
-                $scope.records[i] = {};
-                $scope.records[i].Name = $scope.selectedData[0].Name;
-                $scope.records[i].Email = $scope.selectedData[0].Email;
+            $scope.records[i] = {};
+            $scope.records[i].Name = $scope.selectedData[0].Name;
+            $scope.records[i].Email = $scope.selectedData[0].Email;
         };
-        
     };
-    
-
-
-
-
 });
