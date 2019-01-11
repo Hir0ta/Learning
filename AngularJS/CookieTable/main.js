@@ -1,6 +1,6 @@
 var app = angular.module("cookieApp", ["ngCookies"]);
 app.controller('cookieCtrl', function($scope, $cookies){
-    //$scope.active = -1;
+    $scope.active = -1;
     $scope.table = [];
     $scope.mod = [];
     $scope.myJSON;
@@ -14,6 +14,7 @@ app.controller('cookieCtrl', function($scope, $cookies){
 
     //add new data
     $scope.new = function(){
+        $scope.active = 1;
         var data = {
             name : "",
             email : "",
@@ -25,6 +26,7 @@ app.controller('cookieCtrl', function($scope, $cookies){
 
     //modify data
     $scope.modify = function(i){
+        $scope.active = i;
         $scope.userName = $scope.table[i].name;
         $scope.userMail = $scope.table[i].email;
         $scope.userPassword = $scope.table[i].password;
@@ -37,6 +39,7 @@ app.controller('cookieCtrl', function($scope, $cookies){
             $scope.table.splice(i, 1, data);
             $scope.myJSON = JSON.stringify($scope.table); 
             $cookies.put("cookie", $scope.myJSON);
+            $scope.active = -1;
         };
     };
 
@@ -44,6 +47,7 @@ app.controller('cookieCtrl', function($scope, $cookies){
         $scope.table.splice(i, 1);
         $scope.myJSON = JSON.stringify($scope.table); 
         $cookies.put("cookie", $scope.myJSON);
+        $scope.active = -1;
     }
 
 

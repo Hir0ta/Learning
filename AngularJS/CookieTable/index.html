@@ -36,7 +36,7 @@
             </thead>
             <tbody>
               <tr ng-repeat="data in table track by $index">
-                <th>{{ data.name }}</th>
+                <td>{{ data.name }}</td>
                 <td>{{ data.email }}</td>
                 <td id="buttons">
                   <button class="btn btn-secondary" ng-click="delete($index)">Törlés</button>
@@ -47,7 +47,7 @@
         </table>
       </div>
           <br>
-          <div class="field" >
+          <div class="field" ng-hide="active==-1" >
             <table class="table table-striped table-dark">
               <tbody>
                 <tr>
@@ -57,7 +57,7 @@
                 <tr>
                   <td>Email:</td>
                   <td><input type="text" ng-model="userMail"></td>
-                  <td id="button"> <button class="btn btn-secondary" ng-click="save()">Mentés</button></td>
+                  <td id="button"> <button class="btn btn-secondary" ng-click="save($index)">Mentés</button></td>
                 </tr>
                 <tr>
                   <td>Jelszó:</td>
