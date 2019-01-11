@@ -43,6 +43,7 @@ app.controller('cookieCtrl', function($scope, $cookies){
         };
     };
 
+    //delete data
     $scope.delete = function (i) {
         $scope.table.splice(i, 1);
         $scope.myJSON = JSON.stringify($scope.table); 
