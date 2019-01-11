@@ -12,18 +12,27 @@ app.controller('cookieCtrl', function($scope, $cookies){
         console.log($scope.table) 
     };
 
-
-    $scope.save = function(name, email, password){
-        var data={        
-        };
-        data.name = $scope.userName;
-        data.email = $scope.userMail;
-        data.password = $scope.userPassword;
-        $scope.table.splice($scope.table.length-1, 0, data);
-        //console.log($scope.table);
-        $scope.myJSON = JSON.stringify($scope.table); 
-        //console.log($scope.myJSON);
-        $cookies.put("cookie", $scope.myJSON);
-    };
+    $scope.modify = function(i){
+        $scope.userName = $scope.table[i].name;
+        $scope.userMail = $scope.table[i].email;
+        $scope.userPassword = $scope.table[i].password;
     
+        $scope.save = function(){
+            var data={        
+            };
+            data.name = $scope.userName;
+            data.email = $scope.userMail;
+            data.password = $scope.userPassword;
+            $scope.table.splice(i, 1, data);
+            //console.log($scope.table);
+            $scope.myJSON = JSON.stringify($scope.table); 
+            //console.log($scope.myJSON);
+            $cookies.put("cookie", $scope.myJSON);
+        };
+    };
+
+    
+    $scope.delete = function (i) {
+        $scope.table.splice(i, 1);
+    }
 });
