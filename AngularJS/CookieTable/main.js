@@ -51,5 +51,9 @@ app.controller('cookieCtrl', function($scope, $cookies){
         $scope.active = -1;
     }
 
-
+    //cancel
+    $scope.cancel = function() {
+        $scope.delete($scope.table.length-1);
+        $scope.active = -1;
+    }
 });
