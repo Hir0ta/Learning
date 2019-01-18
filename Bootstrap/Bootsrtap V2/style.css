@@ -18,14 +18,14 @@
     height: 5rem;
     background-color: green;
 }
+.popup{
+    display: none;
+}
 /*Calendar*/  
 .calendar{
-    display: ;
+    display: none;
 }
 
-.gjpicker{
-    max-width: 5rem;
-}
 .datepicker-blue {
     color: red;
     background-color: blue;
