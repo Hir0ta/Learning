@@ -84,23 +84,6 @@
         </ul>
       </div>
     </nav>
-    <div class="pegi fixed-bottom">
-      <nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1">Previous</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="index.php?lap=1">1</a></li>
-          <li class="page-item active">
-            <a class="page-link" href="index.php?lap=2">2</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="index.php?lap=3">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
-        </ul>
-      </nav>
-      </div>
     <div class="panel">
       <?php
         //error handle
@@ -111,132 +94,144 @@
         if ($_GET["lap"] == "2") include "2.php";
         if ($_GET["lap"] == "3") include "3.php";
         if ($_GET["lap"] == "4") include "4.php";
+        if ($_GET["lap"] == "prev") {
+          $prev = $_GET["lap"] + 1;
+          $link = 'index.php?lap=' . $prev;
+          header('Location: ' . $link);
+        }
+        if ($_GET["lap"] == "prev") {
+          $next = $_GET["lap"] + 1;
+          $link = 'index.php?lap=' . $next;
+          header('Location: ' . $link);
+        }
       ?>
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 yellow"></div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 red"></div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 blue"></div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 green"></div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 yellow"></div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 red"></div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 blue"></div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 green"></div>
       </div>
       <br>
-      <table class="table-dark table-hover table-bordered">
-        <thead>
-          <tr>
-            <th class="table-dark">Name</th>
-            <th>Town</th>
-            <th>County</th>
-            <th>Age</th>
-            <th>Profession</th>
-            <th>Anual Income</th>
-            <th>Matital Status</th>
-            <th>Children</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="table-dark">John Smith</td>
-            <td>Macelsfield</td>
-            <td>Cheshire</td>
-            <td>52</td>
-            <td>Brewer</td>
-            <td>£47,000</td>
-            <td>Married</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td class="table-dark">Jenny Jones</td>
-            <td>Threlkeld</td>
-            <td>Cumbria</td>
-            <td>34</td>
-            <td>Shepherdess</td>
-            <td>£28,000</td>
-            <td>Single</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td class="table-dark">Peter Frampton</td>
-            <td>Avebury</td>
-            <td>Wiltshire</td>
-            <td>57</td>
-            <td>Musician</td>
-            <td>£124,000</td>
-            <td>Married</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td class="table-dark">Simon King</td>
-            <td>Malvern</td>
-            <td>Worchestershire</td>
-            <td>48</td>
-            <td>Naturalist</td>
-            <td>£65,000</td>
-            <td>Married</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td class="table-dark">Lucy Diamond</td>
-            <td>St Albans</td>
-            <td>Hertfordshire</td>
-            <td>67</td>
-            <td>Pharmasist</td>
-            <td>Retired</td>
-            <td>Married</td>
-            <td>3</td>
-          </tr>
-          <tr>
-            <td class="table-dark">Austin Stevenson</td>
-            <td>Edinburgh</td>
-            <td>Lothian </td>
-            <td>36</td>
-            <td>Vigilante</td>
-            <td>£86,000</td>
-            <td>Single</td>
-            <td>Unknown</td>
-          </tr>
-          <tr>
-            <td class="table-dark">Wilma Rubble</td>
-            <td>Bedford</td>
-            <td>Bedfordshire</td>
-            <td>43</td>
-            <td>Housewife</td>
-            <td>N/A</td>
-            <td>Married</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td class="table-dark">Kat Dibble</td>
-            <td>Manhattan</td>
-            <td>New York</td>
-            <td>55</td>
-            <td>Policewoman</td>
-            <td>$36,000</td>
-            <td>Single</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td class="table-dark">Henry Bolingbroke</td>
-            <td>Bolingbroke</td>
-            <td>Lincolnshire</td>
-            <td>45</td>
-            <td>Landowner</td>
-            <td>Lots</td>
-            <td>Married</td>
-            <td>6</td>
-          </tr>
-          <tr>
-            <td class="table-dark">Alan Brisingamen</td>
-            <td>Alderley</td>
-            <td>Cheshire</td>
-            <td>352</td>
-            <td>Arcanist</td>
-            <td>A pile of gems</td>
-            <td>Single</td>
-            <td>0</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table-dark table-hover table-bordered">
+          <thead>
+            <tr>
+              <th class="table-dark">Name</th>
+              <th>Town</th>
+              <th>County</th>
+              <th>Age</th>
+              <th>Profession</th>
+              <th>Anual Income</th>
+              <th>Matital Status</th>
+              <th>Children</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="table-dark">John Smith</td>
+              <td>Macelsfield</td>
+              <td>Cheshire</td>
+              <td>52</td>
+              <td>Brewer</td>
+              <td>£47,000</td>
+              <td>Married</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td class="table-dark">Jenny Jones</td>
+              <td>Threlkeld</td>
+              <td>Cumbria</td>
+              <td>34</td>
+              <td>Shepherdess</td>
+              <td>£28,000</td>
+              <td>Single</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td class="table-dark">Peter Frampton</td>
+              <td>Avebury</td>
+              <td>Wiltshire</td>
+              <td>57</td>
+              <td>Musician</td>
+              <td>£124,000</td>
+              <td>Married</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td class="table-dark">Simon King</td>
+              <td>Malvern</td>
+              <td>Worchestershire</td>
+              <td>48</td>
+              <td>Naturalist</td>
+              <td>£65,000</td>
+              <td>Married</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td class="table-dark">Lucy Diamond</td>
+              <td>St Albans</td>
+              <td>Hertfordshire</td>
+              <td>67</td>
+              <td>Pharmasist</td>
+              <td>Retired</td>
+              <td>Married</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td class="table-dark">Austin Stevenson</td>
+              <td>Edinburgh</td>
+              <td>Lothian </td>
+              <td>36</td>
+              <td>Vigilante</td>
+              <td>£86,000</td>
+              <td>Single</td>
+              <td>Unknown</td>
+            </tr>
+            <tr>
+              <td class="table-dark">Wilma Rubble</td>
+              <td>Bedford</td>
+              <td>Bedfordshire</td>
+              <td>43</td>
+              <td>Housewife</td>
+              <td>N/A</td>
+              <td>Married</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td class="table-dark">Kat Dibble</td>
+              <td>Manhattan</td>
+              <td>New York</td>
+              <td>55</td>
+              <td>Policewoman</td>
+              <td>$36,000</td>
+              <td>Single</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td class="table-dark">Henry Bolingbroke</td>
+              <td>Bolingbroke</td>
+              <td>Lincolnshire</td>
+              <td>45</td>
+              <td>Landowner</td>
+              <td>Lots</td>
+              <td>Married</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td class="table-dark">Alan Brisingamen</td>
+              <td>Alderley</td>
+              <td>Cheshire</td>
+              <td>352</td>
+              <td>Arcanist</td>
+              <td>A pile of gems</td>
+              <td>Single</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <br>
       <div class="calendar">
         <div class="gj-margin-top-10">
@@ -317,6 +312,27 @@
               </div>
             </div>
       </div>
+    </div>
+    <div class="pegi fixed-bottom">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <a class="page-link" href="index.php?lap=prev" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="index.php?lap=1">1</a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" href="index.php?lap=2">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="index.php?lap=3">3</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="index.php?lap=next">Next</a>
+          </li>
+        </ul>
+      </nav>
     </div> 
   </body>
 </html>

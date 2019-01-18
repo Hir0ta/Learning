@@ -18,17 +18,18 @@
     height: 5rem;
     background-color: green;
 }
-.popup{
+.navbar{
     display: none;
 }
+
 /*Calendar*/  
 .calendar{
     display: none;
 }
-
 .datepicker-blue {
     color: red;
     background-color: blue;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .datepicker-red {
@@ -36,11 +37,12 @@
     background-color: red;
 }
 
+
 /*Table*/
 .table-dark{
-    display:none;
+    display: none;
 }
-/*table {
+table {
     position: relative;
     border-collapse: collapse;
 } 
@@ -68,7 +70,7 @@ height: 32px;
 tbody {
 position: relative;
 display: block; 
-width: 100vw;
+width: 100%;
 height: 239px;
 overflow: scroll;
 }
@@ -82,4 +84,10 @@ tbody tr td:nth-child(1) {
 position: relative;
 display: block; 
 height: 32px;
-}*/
+}
+.popup{
+    display: none;
+}
+.pegi{
+    display: none;
+}

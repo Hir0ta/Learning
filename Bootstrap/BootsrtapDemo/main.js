@@ -2,7 +2,9 @@ var datepicker, config;
 config = {
     locale: 'hu-hu',
     format: 'yyyy-dd-mm',
-    uiLibrary: 'bootstrap4', 
+    uiLibrary: 'bootstrap4',
+    //modal: true,
+    //footer: true,
 };
 $(document).ready(function(){
     datepicker = $('#datepicker').datepicker(config);
