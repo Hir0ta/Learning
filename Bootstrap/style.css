@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+    display: inline-block;
+}
+.red{
+    width: 5rem;
+    height: 5rem;
+    background-color: red;
+}
+.blue{
+    width: 5rem;
+    height: 5rem;
+    background-color: blue;
+}

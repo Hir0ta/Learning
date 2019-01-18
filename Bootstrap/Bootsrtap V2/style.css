@@ -1,0 +1,85 @@
+/*grid*/
+.row{
+    display: none;
+}
+.yellow{
+    height: 5rem;
+    background-color: yellow;
+}
+.red{
+    height: 5rem;
+    background-color: red;
+}
+.blue{
+    height: 5rem;
+    background-color: blue;
+}
+.green{
+    height: 5rem;
+    background-color: green;
+}
+/*Calendar*/  
+.calendar{
+    display: ;
+}
+
+.gjpicker{
+    max-width: 5rem;
+}
+.datepicker-blue {
+    color: red;
+    background-color: blue;
+}
+
+.datepicker-red {
+    color: blue;
+    background-color: red;
+}
+
+/*Table*/
+.table-dark{
+    display:none;
+}
+/*table {
+    position: relative;
+    border-collapse: collapse;
+} 
+
+thead {
+    position: relative;
+    display: block; 
+    width: 100%;
+    overflow: visible;
+}
+  
+thead th {
+min-width: 160px;
+height: 32px;
+}
+  
+thead th:nth-child(1) {
+position: relative;
+display: block; 
+height: 32px;
+}
+  
+  
+
+tbody {
+position: relative;
+display: block; 
+width: 100vw;
+height: 239px;
+overflow: scroll;
+}
+  
+tbody td {
+min-width: 160px;
+height: 32px;
+}
+
+tbody tr td:nth-child(1) { 
+position: relative;
+display: block; 
+height: 32px;
+}*/
